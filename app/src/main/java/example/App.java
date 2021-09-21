@@ -3,9 +3,23 @@
  */
 package example;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
 
     public static void main(String[] args) {
-        System.out.println(TextBlocks.getTextBlocks());
+
+        System.out.println("Text Blocks: " + TextBlocks.getTextBlocks());
+
+        final PersonRecord personRecord1 = new PersonRecord("Ranganathan", "Harshad", LocalDate.parse("1945-08-21"));
+        final PersonRecord personRecord2 = new PersonRecord("Bond", "James", LocalDate.parse("1941-02-20"));
+        System.out.println("Records: " + personRecord1);
+
+        final List<PersonRecord> personRecords = new ArrayList<>(2);
+        personRecords.add(personRecord1);
+        personRecords.add(personRecord2);
+        System.out.println("Local Records: " + LocalRecords.sortPeopleByAgeDesc(personRecords));
     }
 }
