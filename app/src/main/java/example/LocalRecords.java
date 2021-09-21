@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class LocalRecords {
 
@@ -16,7 +15,7 @@ public class LocalRecords {
                 .map(personRecord -> new Data(personRecord, computeAge(personRecord)))
                 .sorted(Comparator.comparingDouble(Data::age).reversed())
                 .map(Data::personRecord)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private static int computeAge(final PersonRecord personRecord) {
